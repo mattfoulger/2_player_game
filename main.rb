@@ -7,6 +7,7 @@ require './question_generator'
 require './round_score'
 require './round_initialize'
 require './round_end'
+require './game_end'
 
 game_initialize
 
@@ -57,7 +58,7 @@ while(true)
   break if @no_more == true
 end
 
-puts "Thanks for playing!"
+game_end
 
  
 
