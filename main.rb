@@ -1,14 +1,15 @@
 require 'byebug'
 require 'colorize'
 
-require './game_initialize'
-require './question'
-require './question_generator'
-require './round_score'
-require './round_initialize'
-require './round_end'
-require './game_end'
-require './leaders'
+require_relative 'game_initialize'
+require_relative 'question'
+require_relative 'geo_capitals'
+require_relative 'round_score'
+require_relative 'round_initialize'
+require_relative 'round_end'
+require_relative 'game_end'
+require_relative 'leaders'
+
 
 game_initialize
 
