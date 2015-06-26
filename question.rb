@@ -2,25 +2,24 @@ require_relative 'question_generator_math'
 require_relative 'question_generator_geo'
 
 
-def question 
+def question(player, type)
 
-  unless @round_count % 2 == 0
+  case type
+  when "math"
     question_generator_math
-  else
+  when "geo"
     question_generator_geo
   end
 
   response = gets.chomp
 
   if response == @answer 
-    @current_player.score += 5
-    puts "CORRECT!".green + " #{@current_player.name} just earned 5 points."
+    player.points(5)
+    puts "CORRECT!".green + " #{player.name} just earned 5 points."
   else
-    @current_player.lives-= 1
+    player.lives -= 1
     puts "WRONG!".red + " The correct answer is #{@answer}."
-    puts "#{@current_player.name} just lost a life."
+    puts "#{player.name} just lost a life."
   end
-
-
 
 end

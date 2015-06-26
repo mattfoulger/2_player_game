@@ -11,6 +11,8 @@ class Player
     @lives = 3
   end
 
+  # use this class instead of attr because we want to adjust
+  #  score as well as overall overall_score
   def points(value)
     @score += value
     @overall_score += value
