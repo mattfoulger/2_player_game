@@ -8,6 +8,7 @@ require './round_score'
 require './round_initialize'
 require './round_end'
 require './game_end'
+require './leaders'
 
 game_initialize
 
