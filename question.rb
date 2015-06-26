@@ -5,9 +5,9 @@ require_relative 'question_generator_geo'
 def question(player, type)
 
   case type
-  when "math"
+  when "Math"
     question_generator_math
-  when "geo"
+  when "Geography"
     question_generator_geo
   end
 

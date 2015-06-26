@@ -26,11 +26,11 @@ class Game
   def round_loop
     while(true) 
       if @round_count % 2 == 0
-        type = "geo"
+        type = "Geography"
       else
-        type = "math"
+        type = "Math"
       end
-      round = Round.new(@players, type)
+      round = Round.new(@players, type, @round_count)
       round.turn_loop
       break if round.round_end
       @round_count += 1

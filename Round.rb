@@ -1,6 +1,7 @@
 class Round
   
-  def initialize(players, type)
+  def initialize(players, type, round_count)
+    @round_count = round_count
     @type = type
     @players = players
     #randomize who gets to go first this round
@@ -12,10 +13,7 @@ class Round
       player.score = 0
       player.lives = 3
     end
-    puts ""
-    puts "------------------ROUND #{@round_count}---------------------".yellow
-    puts "#{@players[@current_player_index].name} gets to go first this round."
-    puts "----------------------------------------------".yellow
+    round_header(@type, @round_count)
   end
 
   # this method is called by the turn loop to see if the round is still on
