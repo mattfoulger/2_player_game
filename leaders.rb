@@ -1,5 +1,5 @@
 def leaders
-  @players.sort_by {|player| [player[:wins].to_i, player[:overall_score].to_i] }.reverse
+  @players.sort_by {|player| [player.wins, player.overall_score] }.reverse
 end
 
 
@@ -8,15 +8,15 @@ def scoreboard
   puts "----------------------------------------------".yellow
   leaders.each do |player|
     string = ""
-    string << "   #{player[:name]}"
+    string << "   #{player.name}"
     until string.length >= 23 do
       string << " "
     end
-    string << "#{player[:wins]}"
+    string << "#{player.wins}"
     until string.length >= 40 do
       string << " "
     end
-    string << "#{player[:overall_score]}"
+    string << "#{player.overall_score}"
     puts string
   end
 end

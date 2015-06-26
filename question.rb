@@ -13,11 +13,12 @@ def question
   response = gets.chomp
 
   if response == @answer 
-    @current_player[:score] += 5
-    puts "CORRECT!".green + " #{@current_player[:name]} just earned 5 points."
+    @current_player.score += 5
+    puts "CORRECT!".green + " #{@current_player.name} just earned 5 points."
   else
-    @current_player[:lives] -= 1
-    puts "WRONG!".red + " #{@current_player[:name]} just lost a life."
+    @current_player.lives-= 1
+    puts "WRONG!".red + " The correct answer is #{@answer}."
+    puts "#{@current_player.name} just lost a life."
   end
 
 

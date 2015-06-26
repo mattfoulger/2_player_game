@@ -1,6 +1,7 @@
 require 'byebug'
 require 'colorize'
 
+require_relative 'Player'
 require_relative 'game_initialize'
 require_relative 'question'
 require_relative 'geo_capitals'
@@ -17,7 +18,7 @@ game_initialize
 
 # this method is called by the turn loop to see if the round is still on
 def playing?
-  @players.select{|p| p[:lives] > 0}.count > 1
+  @players.select{|player| player.lives > 0}.count > 1
 end
 
 def round
@@ -48,9 +49,9 @@ end
 
 def turn(player_index)
   @current_player = @players[player_index]
-  return unless @current_player[:lives].to_i > 0
+  return unless @current_player.lives > 0
   round_score
-  puts "#{@current_player[:name]}, it's your turn!"
+  puts "#{@current_player.name}, it's your turn!"
   question
 end
 
