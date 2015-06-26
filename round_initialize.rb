@@ -1,16 +1,20 @@
 def round_initialize
-  @turn_count = 0
   @players.each do |player|
     player[:score] = 0
     player[:lives] = 3
   end
 
   puts ""
-  puts "-----------NEW ROUND-------------"
+  puts "------------------ROUND #{@round_count}---------------------".yellow
+  
+  unless @round_count == 1
+    puts "Overall Score:"
 
-  if @players.select{|p| p[:wins] > 0}.any?
-    puts "The overall score is..."
   end
 
+  puts "----------------------------------------------".yellow
+
+  #randomize who gets to go first this round
   @current_player_index = rand(0..(@player_count - 1))
+  puts "#{@players[@current_player_index][:name]} gets to go first this round."
 end

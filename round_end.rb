@@ -4,8 +4,10 @@ def round_end
   winner[:wins] += 1
 
 # final score and message
-round_score
-  puts "Game Over! #{winner[:name]} won the game with #{winner[:score]} points."
+  puts "------------------ROUND OVER------------------".yellow
+  puts "#{winner[:name]} won Round #{@round_count} with #{winner[:score]} points!".yellow
+  puts "----------------------------------------------".yellow
 
+  @round_count += 1
 end
 

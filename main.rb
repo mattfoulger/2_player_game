@@ -3,6 +3,7 @@ require 'colorize'
 
 require './game_initialize'
 require './question'
+require './question_generator'
 require './round_score'
 require './round_initialize'
 require './round_end'
@@ -39,6 +40,7 @@ def round
   if response == "n"
     @no_more = true
   end
+
 end
 
 def turn(player_index)

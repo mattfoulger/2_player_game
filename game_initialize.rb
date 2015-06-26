@@ -8,4 +8,6 @@ def game_initialize
     name = gets.chomp
     @players << {name: name, lives: 0, score: 0, overall_score: 0, wins: 0}
   end
+
+  @round_count = 1
 end
