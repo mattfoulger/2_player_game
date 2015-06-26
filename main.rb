@@ -1,32 +1,24 @@
 require 'byebug'
 require 'colorize'
-require './question'
-require './game_score'
+
 require './game_initialize'
+require './question'
+require './round_score'
+require './round_initialize'
+require './round_end'
 
-@players = []
-puts "How many players?"
-@player_count = gets.chomp.to_i
-
-@player_count.times do |number|
-  puts "Player #{number + 1}, please enter your name"
-  name = gets.chomp
-  @players << {name: name, lives: 0, score: 0, overall_score: 0, wins: 0}
-end
+game_initialize
 
 @no_more = false
 
-# binding.byebug
-
-# this method is called by the turn loop to see if the game is still on
+# this method is called by the turn loop to see if the round is still on
 def playing?
   @players.select{|p| p[:lives] > 0}.count > 1
 end
 
-def game
-  
-  #set up the game
-  game_initialize
+def round
+  # set up the round
+  round_initialize
 
   # turn loop, calls a turn then moves to the next player
   while playing? do
@@ -38,10 +30,11 @@ def game
     end
   end
 
-  winner = @players.detect{|player| player[:lives].to_i > 0}
-  game_score
-  puts "Game Over! #{winner[:name]} won the game with #{winner[:score]} points."
-  puts "Would you like to play again? Y/N"
+  # take care of scorekeeping and end of round messaging
+  round_end
+
+  # end the round
+  puts "Would you like to play another round? Y/N"
   response = gets.chomp.downcase
   if response == "n"
     @no_more = true
@@ -51,15 +44,18 @@ end
 def turn(player_index)
   @current_player = @players[player_index]
   return unless @current_player[:lives].to_i > 0
-  game_score
+  round_score
   puts "#{@current_player[:name]}, it's your turn!"
   question
 end
 
+# game loop
 while(true) 
-  game
+  round
   break if @no_more == true
 end
+
+puts "Thanks for playing!"
 
  
 

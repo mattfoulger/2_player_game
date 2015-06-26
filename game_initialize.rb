@@ -1,15 +1,11 @@
 def game_initialize
-  @turn_count = 0
-  @players.each do |player|
-    player[:score] = 0
-    player[:lives] = 3
-  end
+  @players = []
+  puts "How many players?"
+  @player_count = gets.chomp.to_i
 
-  puts ""
-  puts "-----------NEW GAME-------------"
-  if @players.select{|p| p[:wins] > 0}.any?
-    puts "The overall score is..."
+  @player_count.times do |number|
+    puts "Player #{number + 1}, please enter your name"
+    name = gets.chomp
+    @players << {name: name, lives: 0, score: 0, overall_score: 0, wins: 0}
   end
-
-  @current_player_index = rand(0..(@player_count - 1))
 end

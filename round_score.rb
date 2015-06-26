@@ -1,4 +1,4 @@
-def game_score
+def round_score
 
 puts "--------------------------------"
 @players.each do |player|
