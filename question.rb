@@ -1,6 +1,15 @@
+require_relative 'question_generator_math'
+require_relative 'question_generator_geo'
+
+
 def question 
 
-  question_generator
+  unless @round_count % 2 == 0
+    question_generator_math
+  else
+    question_generator_geo
+  end
+
   response = gets.chomp
 
   if response == @answer 
@@ -10,5 +19,7 @@ def question
     @current_player[:lives] -= 1
     puts "WRONG!".red + " #{@current_player[:name]} just lost a life."
   end
+
+
 
 end
