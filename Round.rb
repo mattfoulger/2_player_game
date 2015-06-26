@@ -12,7 +12,6 @@ class Round
       player.score = 0
       player.lives = 3
     end
-    binding.byebug
     puts ""
     puts "------------------ROUND #{@round_count}---------------------".yellow
     puts "#{@players[@current_player_index].name} gets to go first this round."

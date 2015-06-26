@@ -7,7 +7,6 @@ require_relative 'Round'
 require_relative 'Turn'
 require_relative 'question'
 require_relative 'round_score'
-require_relative 'game_end'
 require_relative 'leaders'
 
 game = Game.new
