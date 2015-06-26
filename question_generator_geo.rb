@@ -1,12 +1,8 @@
+require_relative 'geo_capitals'
+
 def question_generator_geo
 
-  # make two arrays, one with countries, the other with cities
-  # each array has four elements each. They are populated from four random 
-  # elements in the @geo_capitals array
-  # create a multiple choice question
-  # need to match the index values of the two arrays
-
-  range = @geo_capitals.length - 1
+  range = geo_capitals.length - 1
   pairs = []
 
   4.times do |i|

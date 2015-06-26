@@ -1,7 +1,7 @@
 def round_initialize
   @players.each do |player|
-    player[:score] = 0
-    player[:lives] = 3
+    player.score = 0
+    player.lives = 3
   end
 
   #randomize who gets to go first this round
@@ -9,7 +9,7 @@ def round_initialize
 
   puts ""
   puts "------------------ROUND #{@round_count}---------------------".yellow
-  puts "#{@players[@current_player_index][:name]} gets to go first this round."
+  puts "#{@players[@current_player_index].name} gets to go first this round."
   puts "----------------------------------------------".yellow
 
 end
