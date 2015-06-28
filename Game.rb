@@ -45,7 +45,7 @@ class Game
     # final score and message
     # TODO: fix pluralization of "wins" if winner only won once
     puts "------------------GAME OVER-------------------".yellow
-    puts "#{winner.name} won the game with #{winner.wins} round wins and #{winner.score} points!"
+    puts "#{winner.name} won the game with #{winner.wins} round wins and #{winner.overall_score} points!"
     puts "----------------------------------------------".yellow
     puts ""
     puts "Final Scores:"
