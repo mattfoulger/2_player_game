@@ -33,6 +33,13 @@ class Round
     end
   end
 
+  def turn(player, type)
+    return unless player.lives > 0
+    round_score
+    puts "#{player.name}, it's your turn!"
+    Question.new(player, type)
+  end
+
   # take care of scorekeeping and end of round messaging
   def round_end
     # evaluate winner and add to his/her win count
@@ -49,9 +56,9 @@ class Round
     puts "----------------------------------------------".yellow
 
     # end the round
-    puts "Would you like to play another round? Y/N"
+    puts "Press any key to continue or 'q' to end game"
     response = gets.chomp.downcase
-    response == "n"
+    response == "q"
   end
 
 end

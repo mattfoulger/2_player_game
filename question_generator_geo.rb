@@ -28,5 +28,5 @@ def question_generator_geo
       puts "#{pair[:number]}. #{pair[:country]}"
     end
   end
-
+  @answer
 end
