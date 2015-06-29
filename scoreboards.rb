@@ -1,5 +1,5 @@
 def leaders
-  @players.sort_by {|player| [player.wins, player.overall_score] }.reverse
+  Player.all.sort_by {|player| [player.wins, player.overall_score] }.reverse
 end
 
 
