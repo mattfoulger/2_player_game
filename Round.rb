@@ -39,7 +39,13 @@ class Round
     return unless player.lives > 0
     round_score
     puts "#{player.name}, it's your turn!"
-    Question.new(player, type)
+    
+    case type
+    when "Math"
+      QuestionMath.new(player)
+    when "Geography"
+      QuestionGeo.new(player)
+    end
   end
 
   # take care of scorekeeping and end of round messaging
