@@ -45,6 +45,4 @@ def round_header(type, round_count)
   puts "----------------------------------------------".yellow
 end
 
-def centerizer(string)
-  
-end
+
