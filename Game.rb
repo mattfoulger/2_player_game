@@ -1,7 +1,6 @@
 class Game
 
   def initialize
-    @players = []
   
     puts "How many players?"
     @player_count = gets.chomp.to_i
@@ -16,7 +15,7 @@ class Game
     @player_count.times do |number|
       puts "Player #{number + 1}, please enter your name"
       name = gets.chomp
-      @players << Player.new(name)
+      Player.create(name)
     end
 
     @round_count = 1
@@ -30,7 +29,7 @@ class Game
       else
         type = "Math"
       end
-      round = Round.new(@players, type, @round_count)
+      round = Round.new(Player.all, type, @round_count)
       round.turn_loop
       break if round.round_end
       @round_count += 1
