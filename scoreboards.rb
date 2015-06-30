@@ -32,17 +32,6 @@ def round_score
 
 end
 
-def round_header(type, round_count)
-  puts ""
-  puts "------------------ROUND #{@round_count}---------------------".yellow
-  if type == "Math"
-    puts "                   #{type}".yellow
-  else
-    puts "                 #{type}".yellow
-  end
-  puts ""
-  puts "#{@players[@current_player_index].name} gets to go first this round."
-  puts "----------------------------------------------".yellow
-end
+
 
 
