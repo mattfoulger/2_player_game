@@ -1,38 +1,32 @@
 class Game
-
-  def initialize
+  class BadPlayerCountError < StandardError
+  end
+  attr_reader :player_count
+  attr_accessor :round_count
   
-    puts "How many players?"
-    @player_count = gets.chomp.to_i
+  def initialize(player_count)
+    @player_count = player_count
+    @round_count = 1
+  end
 
-    # TODO: figure out single player mode!
-    #       handle non number input for how many players
-    if @player_count == 1
-      puts "Must play with a minimum of two players."
-      @player_count = 2
-    end
-
-    @player_count.times do |number|
+  def gather_players
+    player_count.times do |number|
       puts "Player #{number + 1}, please enter your name"
       name = gets.chomp
       Player.create(name)
     end
-
-    @round_count = 1
-    
   end
 
   def round_loop
     while(true) 
-      if @round_count % 2 == 0
+      if round_count % 2 == 0
         type = "Geography"
       else
         type = "Math"
       end
-      round = Round.new(Player.all, type, @round_count)
-      round.turn_loop
+      round = Round.create(Player.all, type, round_count)
       break if round.round_end
-      @round_count += 1
+      self.round_count += 1
     end
   end
 
@@ -55,5 +49,13 @@ class Game
 
   end
 
-
+  class << self
+    def create(player_count)
+      
+      begin
+        raise BadPlayerCountError, "Please enter a number greater than 1." if player_count.to_i < 2
+        game = Game.new(player_count.to_i)
+      end
+    end
+  end
 end

@@ -24,6 +24,7 @@ class Player
 
     def create(name)
       @@players << Player.new(name)
+      @@players.last
     end
 
     def all
